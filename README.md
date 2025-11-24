@@ -17,6 +17,26 @@ My goal is to gain an understanding of how global crises impact technology busin
 - How can we compare average prices of Apple and Samsung products over time?
 - Which company show a faster adaptation in terms of price changes to the pandemic period?
 
+**Hypothesis**
+H1: In the early months of the COVID-19 pandemic, Apple's stock price rose faster than Samsung's.   
+H2: Due to its slow response to market shifts, Samsung's price growth behind Apple's by many months.
+H3: Increases in the number of COVID-19 cases worldwide are positively correlated with rising Apple stock prices.  
+H4: After 2021, Samsung's prices either remained or decreased, whereas Apple continued its more steady increasing path.  
+H5: Apple often outperforms Samsung in terms of monthly average returns.
+
+**Methodology**
+To test these hypotheses, the following methods will be applied:
+- Data Collection: Daily and monthly Apple and Samsung stock prices (2019–2024) and global number of COVID-19 daily cases  
+- Data Cleaning: Sorting dates, correcting missing values, and converting prices to matching units.  
+- Exploratory Data Analysis (EDA): Scatter plots, histograms, and time series visualizations to identify trends.  
+- Statistical Testing: 
+  - Correlation analysis (Pearson/Spearman) between COVID-19 cases and stock prices.  
+  - T-tests or ANOVA to compare Apple vs Samsung monthly averages.
+- Regression Models:
+  - Time series regression to measure the impact of COVID-19 cases on stock prices.  
+  - Comparing slope analysis to measure growth rates of Apple vs Samsung.  
+- Volatility Analysis: Standard deviation and rolling-window variance to compare stability of both stocks.  
+
 **Data Set**
 
 I will use Apple and Samsung prices collected between 2019 and 2024, and COVID-19 cases in 2020.
