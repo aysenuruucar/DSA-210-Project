@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+
 """
 DSA-210 Project – Apple vs Samsung
 Final, cleaned & corrected version
@@ -15,13 +14,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import ttest_ind, pearsonr
 
-# --- Apple, Samsung ve Covid data yükleme ---
+# --- Apple, Samsung, Covid Datas ---
 apple = pd.read_csv("apple.csv")
 samsung = pd.read_csv("samsung.csv")
 covid = pd.read_csv("corona.csv")
 
 # ------------------------------------
-# Samsung fiyat kolonunu otomatik bulma
+# Finding Samsung Price Column Automatically
 # ------------------------------------
 possible_price_cols = ["Close", "Price", "Adj Close", "Adj_Close", "Closing Price"]
 samsung_price_col = None
@@ -36,7 +35,7 @@ print("Samsung price column found:", samsung_price_col)
 if samsung_price_col is None:
     raise ValueError("Samsung veri setinde fiyat kolonu bulunamadı.")
 
-# --- Tarih formatlarını düzenleme ---
+# --- Date Format Regulations ---
 apple['Date'] = pd.to_datetime(apple['Date'], format="mixed", dayfirst=True)
 samsung['Date'] = pd.to_datetime(samsung['Date'], format="mixed", dayfirst=True)
 covid['Date'] = pd.to_datetime(covid['Date'], format="mixed", dayfirst=True)
@@ -57,18 +56,18 @@ df = df.rename(columns={
 })
 
 # ================================
-# SAYISAL KOLON TEMİZLİĞİ
+# Cleaning Number Columns
 # ================================
 for col in ["Apple_Price", "Samsung_Price", "Covid_Cases"]:
     df[col] = (
         df[col]
-        .astype(str)            # string yap
+        .astype(str)            
         .str.replace(",", "")   # 75,200 → 75200
-        .str.replace(" ", "")   # boşluk varsa sil
+        .str.replace(" ", "")  
     )
     df[col] = pd.to_numeric(df[col], errors="coerce")
 
-# İlk birkaç satır kontrol
+# First a few row control
 df.head()
 
 # ======================================
